@@ -1,0 +1,6 @@
+Algoritmo ejemplo
+   Definir x, y como Entero
+   x <- 5
+   y <- x + 2
+   Escribir y
+FinAlgoritmo
