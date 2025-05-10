@@ -1,75 +1,82 @@
-Token	Lexema (Ejemplo)	Descripcion			
-PALABRA_RESERVADA	Algoritmo	Indica el inicio de un algoritmo.			
-PALABRA_RESERVADA	FinAlgoritmo	Indica el final de un algoritmo.			
-PALABRA_RESERVADA	Definir	Se utiliza para declarar variables.			
-PALABRA_RESERVADA	Como	Especifica el tipo de dato al definir una variable.			
-PALABRA_RESERVADA	Escribir	Imprime texto o valores en la salida			
-PALABRA_RESERVADA	Leer	Lee valores de entrada del usuario.			
-PALABRA_RESERVADA	Si	Inicia una estructura condicional.			
-PALABRA_RESERVADA	Entonces	Indica el bloque a ejecutar si se cumple una condicion.			
-PALABRA_RESERVADA	Sino	Indica el bloque a ejecutar si no se cumple una condicion.			
-PALABRA_RESERVADA	FinSi	Finaliza una estructura condicional.			
-PALABRA_RESERVADA	Segun	Inicia una estructura de seleccion multiple.			
-PALABRA_RESERVADA	Caso	Define una opcion dentro de una estructura Segun.			
-PALABRA_RESERVADA	De	Palabra reservada proviniente de "De Otro Modo"			
-PALABRA_RESERVADA	Otro	Palabra reservada proviniente de "De Otro Modo"			
-PALABRA_RESERVADA	Modo	Palabra reservada proviniente de "De Otro Modo"			
-PALABRA_RESERVADA	FinSegun	Finaliza una estructura de seleccion multiple.			
-PALABRA_RESERVADA	Mientras	Inicia un bucle condicional.			
-PALABRA_RESERVADA	Hacer	Indica el inicio del bloque a repetir en un bucle Mientras.			
-PALABRA_RESERVADA	FinMientras	Finaliza un bucle condicional.			
-PALABRA_RESERVADA	Repetir	Inicia un bucle que se ejecuta hasta que se cumple una condicion.			
-PALABRA_RESERVADA	Hasta	Indica la condicion de finalizacion para un bucle Repetir.			
-PALABRA_RESERVADA	Que	Complemento de la condicion en estructuras Hasta.			
-PALABRA_RESERVADA	Para	Inicia un bucle con contador.			
-PALABRA_RESERVADA	Desde	Especifica el valor inicial en un bucle Para.			
-PALABRA_RESERVADA	Con	Especifica el incremento en un bucle Para.			
-PALABRA_RESERVADA	Paso	Define el paso de incremento en un bucle Para.			
-PALABRA_RESERVADA	FinPara	Finaliza un bucle con contador.			
-PALABRA_RESERVADA	Funcion	Declara el inicio de una funcion.			
-PALABRA_RESERVADA	FinFuncion	Finaliza una funcion.			
-PALABRA_RESERVADA	SubProceso	Declara el inicio de un subproceso.			
-PALABRA_RESERVADA	FinSubProceso	Finaliza un subproceso.			
-PALABRA_RESERVADA	Dimension	Se utiliza para declarar arreglos.			
-PALABRA_RESERVADA	Por	Especifica el paso de parametros.			
-PALABRA_RESERVADA	Referencia	Indica paso de parametros por referencia.			
-PALABRA_RESERVADA	Valor	Indica paso de parametros por valor.			
-PALABRA_RESERVADA	Fin	Finaliza estructuras de control o bloques.			  
-TIPO_DATO	Entero	Tipo de dato para numeros enteros.			
-TIPO_DATO	Real	Tipo de dato para numeros con decimales.			
-TIPO_DATO	Caracter	Tipo de dato para caracteres individuales.			
-TIPO_DATO	Cadena	Tipo de dato para cadenas de texto.			
-TIPO_DATO	Texto	Tipo de dato para texto (similar a cadena).			
-TIPO_DATO	Logico	Tipo de dato para valores booleanos (verdadero/falso).			
-OPERADOR_ASIGNACION	<-	Operador de asignacion de valores.			
-OPERADOR_ARITMETICO	+	Operador de suma.			
-OPERADOR_ARITMETICO	-	Operador de resta o negacion.			
-OPERADOR_ARITMETICO	*	Operador de multiplicacion.			
-OPERADOR_ARITMETICO	/	Operador de division.			
-OPERADOR_ARITMETICO	%	Operador de modulo (resto de division).			
-OPERADOR_ARITMETICO	^	Operador de exponenciacion.			
-OPERADOR_RELACIONAL	=	Operador de igualdad (en algunos lenguajes).			
-OPERADOR_RELACIONAL	==	Operador de igualdad.			
-OPERADOR_RELACIONAL	<>	Operador de desigualdad.			
-OPERADOR_RELACIONAL	<=	Operador de menor o igual que.			
-OPERADOR_RELACIONAL	>=	Operador de mayor o igual que.			
-OPERADOR_RELACIONAL	<	Operador de menor que.			
-OPERADOR_RELACIONAL	>	Operador de mayor que.			
-OPERADOR_LOGICO	Y	Operador logico AND (y).			
-OPERADOR_LOGICO	O	Operador logico OR (o).			
-OPERADOR_LOGICO	NO	Operador logico NOT (negacion).			
-CONST_REAL	[0-9]+.[0-9]+	Representa constantes numericas con decimales.			
-CONST_ENTERO	[0-9]+	Representa constantes numericas enteras.			
-CONST_TEXTO	"..."	Representa cadenas de texto entre comillas.			
-CONST_LOGICO	Verdadero	Valor booleano verdadero.			
-CONST_LOGICO	Falso	Valor booleano falso.			
-DELIMITADOR	,	Separador de elementos (como en listas de parametros).			
-DELIMITADOR	;	Terminador de sentencias.			
-DELIMITADOR	(	Inicia agrupacion de expresiones o parametros.			
-DELIMITADOR	)	Finaliza agrupacion de expresiones o parametros.			
-DELIMITADOR	[	Inicia indice de arreglo.			
-DELIMITADOR	]	Finaliza indice de arreglo.			
-SIMBOLO	:	Simbolo con diversos usos (etiquetas, etc.).			
-IDENTIFICADOR	[a-zA-Z_]...	Nombres de variables, funciones u otros elementos definidos por el usuario.			
-SALTO_LINEA	\n	Indica un salto de linea en el codigo.			
-CARACTER_NO_RECONOCIDO	e	Caracter que no coincide con ningun patron definido.			
+Token	Lexema (Ejemplo)	Descripcion
+PALABRA_RESERVADA	Algoritmo	Indica el inicio de un algoritmo.
+PALABRA_RESERVADA	FinAlgoritmo	Indica el final de un algoritmo.
+PALABRA_RESERVADA	Definir	Se utiliza para declarar variables.
+PALABRA_RESERVADA	Es	Especifica el tipo de dato de una variable.
+PALABRA_RESERVADA	Como	Especifica el tipo de dato al definir una variable.
+PALABRA_RESERVADA	Escribir	Imprime texto o valores en la salida
+PALABRA_RESERVADA	Leer	Lee valores de entrada del usuario.
+PALABRA_RESERVADA	Si	Inicia una estructura condicional.
+PALABRA_RESERVADA	Entonces	Indica el bloque a ejecutar si se cumple una condicion.
+PALABRA_RESERVADA	Sino	Indica el bloque a ejecutar si no se cumple una condicion.
+PALABRA_RESERVADA	FinSi	Finaliza una estructura condicional.
+PALABRA_RESERVADA	Segun	Inicia una estructura de seleccion multiple.
+PALABRA_RESERVADA	Caso	Define una opcion dentro de una estructura Segun.
+PALABRA_RESERVADA	De	Palabra reservada proviniente de "De Otro Modo"
+PALABRA_RESERVADA	Otro	Palabra reservada proviniente de "De Otro Modo"
+PALABRA_RESERVADA	Modo	Palabra reservada proviniente de "De Otro Modo"
+PALABRA_RESERVADA	FinSegun	Finaliza una estructura de seleccion multiple.
+PALABRA_RESERVADA	Mientras	Inicia un bucle condicional.
+PALABRA_RESERVADA	Hacer	Indica el inicio del bloque a repetir en un bucle Mientras.
+PALABRA_RESERVADA	FinMientras	Finaliza un bucle condicional.
+PALABRA_RESERVADA	Repetir	Inicia un bucle que se ejecuta hasta que se cumple una condicion.
+PALABRA_RESERVADA	Hasta	Indica la condicion de finalizacion para un bucle Repetir.
+PALABRA_RESERVADA	Que	Complemento de la condicion en estructuras Hasta.
+PALABRA_RESERVADA	Para	Inicia un bucle con contador.
+PALABRA_RESERVADA	Desde	Especifica el valor inicial en un bucle Para.
+PALABRA_RESERVADA	Con	Especifica el incremento en un bucle Para.
+PALABRA_RESERVADA	Paso	Define el paso de incremento en un bucle Para.
+PALABRA_RESERVADA	FinPara	Finaliza un bucle con contador.
+PALABRA_RESERVADA	Funcion	Declara el inicio de una funcion.
+PALABRA_RESERVADA	FinFuncion	Finaliza una funcion.
+PALABRA_RESERVADA	SubAlgoritmo	Declara el inicio de un subproceso.
+PALABRA_RESERVADA	FinSubAlgoritmo	Finaliza un subproceso.
+PALABRA_RESERVADA	Dimension	Se utiliza para declarar arreglos.
+PALABRA_RESERVADA	Por	Especifica el paso en estructuras de repeticion.
+PALABRA_RESERVADA	Referencia	Indica paso de parametros por referencia.
+PALABRA_RESERVADA	Valor	Indica paso de parametros por valor.
+PALABRA_RESERVADA	Fin	Finaliza estructuras de control o bloques.
+PALABRA_RESERVADA	Sin	Palabra reservada proviniente de "Sin Saltar"
+PALABRA_RESERVADA	Saltar	Palabra reservada proviniente de "Sin Saltar"
+PALABRA_RESERVADA	Esperar	Detiene la ejecución hasta.
+PALABRA_RESERVADA	Tecla	Descencadenante de Esperar hasta presionar una tecla
+PALABRA_RESERVADA	Limpiar	Palabra reservada proviniente de "Limpiar Pantalla"
+PALABRA_RESERVADA	Pantalla	Palabra reservada proviniente de "Limpiar Pantalla"
+TIPO_DATO	Entero	Tipo de dato para numeros enteros.
+TIPO_DATO	Real	Tipo de dato para numeros con decimales.
+TIPO_DATO	Caracter	Tipo de dato para caracteres.
+TIPO_DATO	Cadena	Tipo de dato para cadenas de texto.
+TIPO_DATO	Texto	Tipo de dato para texto.
+TIPO_DATO	Logico	Tipo de dato para valores booleanos.
+OPERADOR_ASIGNACION	<-	Operador de asignacion de valores.
+OPERADOR_ARITMETICO	+	Operador de suma.
+OPERADOR_ARITMETICO	-	Operador de resta o negacion.
+OPERADOR_ARITMETICO	*	Operador de multiplicacion.
+OPERADOR_ARITMETICO	/	Operador de division.
+OPERADOR_ARITMETICO	%	Operador de modulo.
+OPERADOR_ARITMETICO	^	Operador de exponenciacion.
+OPERADOR_RELACIONAL	=	Operador de Igualdad.
+OPERADOR_RELACIONAL	==	Operador de igualdad.
+OPERADOR_RELACIONAL	<>	Operador de desigualdad.
+OPERADOR_RELACIONAL	<=	Operador de menor o igual que.
+OPERADOR_RELACIONAL	>=	Operador de mayor o igual que.
+OPERADOR_RELACIONAL	<	Operador de menor que.
+OPERADOR_RELACIONAL	>	Operador de mayor que.
+OPERADOR_LOGICO	Y	Operador logico AND (y).
+OPERADOR_LOGICO	O	Operador logico OR (o).
+OPERADOR_LOGICO	NO	Operador logico NOT (negacion).
+CONST_REAL	[0-9]+.[0-9]+	Representa constantes numericas con decimales.
+CONST_ENTERO	[0-9]+	Representa constantes numericas enteras.
+CONST_TEXTO	...	Representa cadenas de texto entre comillas.
+CONST_LOGICO	Verdadero	Valor booleano verdadero.
+CONST_LOGICO	Falso	Valor booleano falso.
+DELIMITADOR	,	Separador de elementos.
+DELIMITADOR	;	Terminador de sentencias.
+DELIMITADOR	(	Inicia agrupacion de expresiones o parametros.
+DELIMITADOR	)	Finaliza agrupacion de expresiones o parametros.
+DELIMITADOR	[	Inicia indice de arreglo.
+DELIMITADOR	]	Finaliza indice de arreglo.
+SIMBOLO	:	Simbolo con diversos usos (etiquetas, etc.).
+IDENTIFICADOR	[a-zA-Z_]...	Nombres de variables, funciones u otros elementos definidos por el usuario.
+SALTO_LINEA	\n	Indica un salto de linea en el codigo.
+CARACTER_NO_RECONOCIDO	@	Caracter que no coincide con ningun patron definido.

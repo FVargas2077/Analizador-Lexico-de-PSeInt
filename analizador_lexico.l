@@ -11,9 +11,13 @@ FILE *token_file; // Archivo para guardar los tokens
  /* Palabras reservadas */
 "Algoritmo"         { fprintf(token_file, "<PALABRA_RESERVADA, Algoritmo>\n"); }
 "FinAlgoritmo"      { fprintf(token_file, "<PALABRA_RESERVADA, FinAlgoritmo>\n"); }
+"Proceso"           { fprintf(token_file, "<PALABRA_RESERVADA, Algoritmo>\n"); }
+"FinProceso"        { fprintf(token_file, "<PALABRA_RESERVADA, FinAlgoritmo>\n"); }
 "Definir"           { fprintf(token_file, "<PALABRA_RESERVADA, Definir>\n"); }
 "Como"              { fprintf(token_file, "<PALABRA_RESERVADA, Como>\n"); }
 "Escribir"          { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
+"Imprimir"          { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
+"Mostrar"           { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
 "Leer"              { fprintf(token_file, "<PALABRA_RESERVADA, Leer>\n"); }
 "Si"                { fprintf(token_file, "<PALABRA_RESERVADA, Si>\n"); }
 "Entonces"          { fprintf(token_file, "<PALABRA_RESERVADA, Entonces>\n"); }
@@ -38,8 +42,10 @@ FILE *token_file; // Archivo para guardar los tokens
 "FinPara"           { fprintf(token_file, "<PALABRA_RESERVADA, FinPara>\n"); }
 "Funcion"           { fprintf(token_file, "<PALABRA_RESERVADA, Funcion>\n"); }
 "FinFuncion"        { fprintf(token_file, "<PALABRA_RESERVADA, FinFuncion>\n"); }
-"SubProceso"        { fprintf(token_file, "<PALABRA_RESERVADA, SubProceso>\n"); }
-"FinSubProceso"     { fprintf(token_file, "<PALABRA_RESERVADA, FinSubProceso>\n"); }
+"SubProceso"        { fprintf(token_file, "<PALABRA_RESERVADA, SubAlgoritmo>\n"); }
+"FinSubProceso"     { fprintf(token_file, "<PALABRA_RESERVADA, FinSubAlgoritmo>\n"); }
+"SubAlgoritmo"      { fprintf(token_file, "<PALABRA_RESERVADA, SubAlgoritmo>\n"); }
+"FinSubAlgoritmo"   { fprintf(token_file, "<PALABRA_RESERVADA, FinSubAlgoritmo>\n"); }
 "Dimension"         { fprintf(token_file, "<PALABRA_RESERVADA, Dimension>\n"); }
 "Por"               { fprintf(token_file, "<PALABRA_RESERVADA, Por>\n"); }
 "Referencia"        { fprintf(token_file, "<PALABRA_RESERVADA, Referencia>\n"); }
@@ -55,7 +61,7 @@ FILE *token_file; // Archivo para guardar los tokens
 "Logico"            { fprintf(token_file, "<TIPO_DATO, Logico>\n"); }
 
  /* Operadores de asignación */
-"<-"                { fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
+"<-"|":="           { fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
 
  /* Operadores aritméticos */
 "+"                 { fprintf(token_file, "<OPERADOR_ARITMETICO, +>\n"); }
@@ -83,8 +89,11 @@ FILE *token_file; // Archivo para guardar los tokens
 [0-9]+"."[0-9]+     { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
 [0-9]+              { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 
- /* Constantes de texto */
+ /* Constantes de texto con comillas dobles */
 \"([^\\\"]|\\.)*\"  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
+
+ /* Constantes de texto con comillas simples */
+\'([^\\\']|\\.)*\'  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 
  /* Constantes lógicas */
 "Verdadero"         { fprintf(token_file, "<CONST_LOGICO, Verdadero>\n"); }
@@ -94,15 +103,15 @@ FILE *token_file; // Archivo para guardar los tokens
 "//".*              ;
 
  /* Delimitadores */
-","     { fprintf(token_file, "<DELIMITADOR, ,>\n"); }
-";"     { fprintf(token_file, "<DELIMITADOR, ;>\n"); }
-"("     { fprintf(token_file, "<DELIMITADOR, (>\n"); }
-")"     { fprintf(token_file, "<DELIMITADOR, )>\n"); }
-"["     { fprintf(token_file, "<DELIMITADOR, [>\n"); }
-"]"     { fprintf(token_file, "<DELIMITADOR, ]>\n"); }
+","                 { fprintf(token_file, "<DELIMITADOR, ,>\n"); }
+";"                 { fprintf(token_file, "<DELIMITADOR, ;>\n"); }
+"("                 { fprintf(token_file, "<DELIMITADOR, (>\n"); }
+")"                 { fprintf(token_file, "<DELIMITADOR, )>\n"); }
+"["                 { fprintf(token_file, "<DELIMITADOR, [>\n"); }
+"]"                 { fprintf(token_file, "<DELIMITADOR, ]>\n"); }
 
  /* Simbolos extras */
- ":"    { fprintf(token_file, "<SIMBOLO, :>\n"); }
+ ":"                { fprintf(token_file, "<SIMBOLO, :>\n"); }
 
  /* Identificadores */
 [a-zA-Z_][a-zA-Z0-9_]*  { fprintf(token_file, "<IDENTIFICADOR, %s>\n", yytext); }
@@ -111,10 +120,10 @@ FILE *token_file; // Archivo para guardar los tokens
 [ \t]+              ;
 
  /* Reconocer saltos de línea */
-\n                  { fprintf(token_file, "<SALTO_LINEA>\n"); }
+\n                      { fprintf(token_file, "<SALTO_LINEA>\n"); }
 
  /* Caracteres no reconocidos */
-.                   { fprintf(token_file, "<CARACTER_NO_RECONOCIDO, %s>\n", yytext); }
+.                       { fprintf(token_file, "<CARACTER_NO_RECONOCIDO, %s>\n", yytext); }
 
 %%
 
