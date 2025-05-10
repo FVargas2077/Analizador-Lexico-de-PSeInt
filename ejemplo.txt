@@ -1,71 +1,68 @@
 // Comentario inicial de prueba
 
 Algoritmo pruebaLexico
+	
+	// Declaraciones de variables
+	Definir numero1, numero2 Como Entero;
+	Definir promedio Como Real;
+	Definir mensaje Como Cadena;
+	Definir valido Como Logico;
+	
+	// Asignación y operaciones aritméticas
+	numero1 <- 10;
+	numero2 <- 20;
+	promedio <- (numero1 + numero2) / 2;
+	
+	// Constante de texto válida
+	mensaje <- "El promedio es:";
+	Escribir mensaje;
+	
+	// Caracteres de escape válidos dentro de texto
+	Escribir "Texto con salto\n y tabulación\t";
+	
+	// Comparaciones lógicas
+	Si numero1 >= numero2 Entonces
+		Escribir "numero1 es mayor o igual";
+	Sino
+		Escribir "numero2 es mayor";
+	FinSi
+	
+	// Bucle Mientras
+	Mientras valido = Verdadero Hacer
+		Leer numero1;
+		Si numero1 < 0 Entonces
+			valido <- Falso;
+		FinSi
+	FinMientras
+	
+	// Usando Segun
+	Segun numero1 Hacer
+		Caso 1:
+			Escribir "Uno";
+		2:
+			Escribir "Dos";
+		De Otro Modo:
+			Escribir "Otro número";
+	FinSegun
+	
+	// Repetir
+	Repetir
+		numero1 <- numero1 - 1;
+	Hasta Que numero1 = 0
+FinAlgoritmo
 
-// Declaraciones de variables
-Definir numero1, numero2 Como Entero;
-Definir promedio Como Real;
-Definir mensaje Como Cadena;
-Definir valido Como Logico;
-
-// Asignación y operaciones aritméticas
-numero1 <- 10;
-numero2 <- 20;
-promedio <- (numero1 + numero2) / 2;
-
-// Constante de texto válida
-mensaje <- "El promedio es:";
-Escribir mensaje;
-
-// Caracteres de escape válidos dentro de texto
-Escribir "Texto con salto\n y tabulación\t";
-
-// Comparaciones lógicas
-Si numero1 >= numero2 Entonces
-    Escribir "numero1 es mayor o igual";
-Sino
-    Escribir "numero2 es mayor";
-FinSi
-
-// Bucle Mientras
-Mientras valido = Verdadero Hacer
-    Leer numero1;
-    Si numero1 < 0 Entonces
-        valido <- Falso;
-    FinSi
-FinMientras
-
-// Usando Segun
-Segun numero1 Hacer
-    1:
-        Escribir "Uno";
-    2:
-        Escribir "Dos";
-    De Otro Modo:
-        Escribir "Otro número";
-FinSegun
-
-// Repetir
-Repetir
-    numero1 <- numero1 - 1;
-Hasta Que numero1 = 0
-
+	
 // Función y Subproceso
-Funcion Sumar(a, b Por Valor) : Real
-    Sumar <- a + b;
+Funcion Real <- Sumar(a, b Por Valor)
+	Real <- a + b;
 FinFuncion
+
 
 SubProceso MostrarMensaje(mensaje Por Referencia)
     Escribir mensaje;
 FinSubProceso
 
-// Delimitadores y identificadores con números
-a1 <- 5;
-b_2 <- 6;
-resultado3 <- a1 * b_2 % 4;
-
 // Casos con errores intencionales
 @variable <- 5;           // Error: carácter no reconocido '@'
 mensaje <- "Sin cierre    // Error: cadena sin cerrar
 numero1 <== 10;           // Error: operador no válido '<=='
-FinAlgoritmo
