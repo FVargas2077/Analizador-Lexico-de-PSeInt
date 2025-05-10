@@ -976,7 +976,7 @@ YY_RULE_SETUP
 case 43:
 YY_RULE_SETUP
 #line 58 ".\\analizador_lexico.l"
-{ fprintf(token_file, "<OPERADOR_ASIGNACION, <- >\n"); }
+{ fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
 	YY_BREAK
 /* Operadores aritméticos */
 case 44:

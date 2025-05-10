@@ -1,1 +1,4 @@
 tokens.txt
+venv/
+__pycache__/
+GeneradorMatriz/Matriz_Simbolos.csv

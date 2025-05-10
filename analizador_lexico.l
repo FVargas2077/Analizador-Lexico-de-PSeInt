@@ -55,7 +55,7 @@ FILE *token_file; // Archivo para guardar los tokens
 "Logico"            { fprintf(token_file, "<TIPO_DATO, Logico>\n"); }
 
  /* Operadores de asignación */
-"<-"                { fprintf(token_file, "<OPERADOR_ASIGNACION, <- >\n"); }
+"<-"                { fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
 
  /* Operadores aritméticos */
 "+"                 { fprintf(token_file, "<OPERADOR_ARITMETICO, +>\n"); }
@@ -75,7 +75,7 @@ FILE *token_file; // Archivo para guardar los tokens
 ">"                 { fprintf(token_file, "<OPERADOR_RELACIONAL, >>\n"); }
 
  /* Operadores lógicos */
-"Y"|"&"            { fprintf(token_file, "<OPERADOR_LOGICO, Y>\n"); }
+"Y"|"&"             { fprintf(token_file, "<OPERADOR_LOGICO, Y>\n"); }
 "O"|"|"             { fprintf(token_file, "<OPERADOR_LOGICO, O>\n"); }
 "NO"|"~"            { fprintf(token_file, "<OPERADOR_LOGICO, NO>\n"); }
 
