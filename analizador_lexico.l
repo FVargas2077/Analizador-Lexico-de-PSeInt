@@ -8,6 +8,7 @@ FILE *token_file; // Archivo para guardar los tokens
 %option noyywrap
 
 %%
+
  /* Palabras reservadas */
 "Algoritmo"         { fprintf(token_file, "<PALABRA_RESERVADA, Algoritmo>\n"); }
 "FinAlgoritmo"      { fprintf(token_file, "<PALABRA_RESERVADA, FinAlgoritmo>\n"); }
@@ -85,15 +86,19 @@ FILE *token_file; // Archivo para guardar los tokens
 "O"|"|"             { fprintf(token_file, "<OPERADOR_LOGICO, O>\n"); }
 "NO"|"~"            { fprintf(token_file, "<OPERADOR_LOGICO, NO>\n"); }
 
- /* Constantes numéricas */
-[0-9]+"."[0-9]+     { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
-[0-9]+              { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
+ /* Constantes numéricas sin signo */
+[0-9]+\.[0-9]+        { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
+[0-9]+                { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
+
+ /* Constantes numéricas con signo */
+([^0-9]|^)[-+][0-9]+\.[0-9]+        { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
+([^0-9]|^)[-+][0-9]+                { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 
  /* Constantes de texto con comillas dobles */
-\"([^\\\"]|\\.)*\"  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
+\"([^\\\"\n]|\\.)*\"  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 
  /* Constantes de texto con comillas simples */
-\'([^\\\']|\\.)*\'  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
+\'([^\\\'\n]|\\.)*\'  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 
  /* Constantes lógicas */
 "Verdadero"         { fprintf(token_file, "<CONST_LOGICO, Verdadero>\n"); }
@@ -109,6 +114,7 @@ FILE *token_file; // Archivo para guardar los tokens
 ")"                 { fprintf(token_file, "<DELIMITADOR, )>\n"); }
 "["                 { fprintf(token_file, "<DELIMITADOR, [>\n"); }
 "]"                 { fprintf(token_file, "<DELIMITADOR, ]>\n"); }
+"\""               { fprintf(token_file, "<DELIMITADOR, \">\n"); }
 
  /* Simbolos extras */
  ":"                { fprintf(token_file, "<SIMBOLO, :>\n"); }
