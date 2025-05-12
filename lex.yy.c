@@ -708,10 +708,9 @@ char *yytext;
 #line 1 ".\\analizador_lexico.l"
 #define INITIAL 0
 #line 2 ".\\analizador_lexico.l"
-#include <stdio.h> // Para la función fprintf
-#include <stdlib.h> // Para la función exit
+#include <stdio.h> // Para la funcion fprintf
 FILE *token_file; // Archivo para guardar los tokens
-#line 715 "lex.yy.c"
+#line 714 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -862,11 +861,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 10 ".\\analizador_lexico.l"
+#line 9 ".\\analizador_lexico.l"
 
 
  /* Palabras reservadas */
-#line 870 "lex.yy.c"
+#line 869 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -951,457 +950,457 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 13 ".\\analizador_lexico.l"
+#line 12 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Algoritmo>\n"); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 14 ".\\analizador_lexico.l"
+#line 13 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinAlgoritmo>\n"); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 15 ".\\analizador_lexico.l"
+#line 14 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Algoritmo>\n"); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 16 ".\\analizador_lexico.l"
+#line 15 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinAlgoritmo>\n"); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 17 ".\\analizador_lexico.l"
+#line 16 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Definir>\n"); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 18 ".\\analizador_lexico.l"
+#line 17 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Como>\n"); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 19 ".\\analizador_lexico.l"
+#line 18 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 20 ".\\analizador_lexico.l"
+#line 19 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 21 ".\\analizador_lexico.l"
+#line 20 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Escribir>\n"); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 22 ".\\analizador_lexico.l"
+#line 21 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Leer>\n"); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 23 ".\\analizador_lexico.l"
+#line 22 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Si>\n"); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 24 ".\\analizador_lexico.l"
+#line 23 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Entonces>\n"); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 25 ".\\analizador_lexico.l"
+#line 24 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Sino>\n"); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 26 ".\\analizador_lexico.l"
+#line 25 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinSi>\n"); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 27 ".\\analizador_lexico.l"
+#line 26 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Segun>\n"); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 28 ".\\analizador_lexico.l"
+#line 27 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Caso>\n"); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 29 ".\\analizador_lexico.l"
+#line 28 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, De>\n"); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 30 ".\\analizador_lexico.l"
+#line 29 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Otro>\n"); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 31 ".\\analizador_lexico.l"
+#line 30 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Modo>\n"); }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 32 ".\\analizador_lexico.l"
+#line 31 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinSegun>\n"); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 33 ".\\analizador_lexico.l"
+#line 32 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Mientras>\n"); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 34 ".\\analizador_lexico.l"
+#line 33 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Hacer>\n"); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 35 ".\\analizador_lexico.l"
+#line 34 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinMientras>\n"); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 36 ".\\analizador_lexico.l"
+#line 35 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Repetir>\n"); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 37 ".\\analizador_lexico.l"
+#line 36 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Hasta>\n"); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 38 ".\\analizador_lexico.l"
+#line 37 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Que>\n"); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 39 ".\\analizador_lexico.l"
+#line 38 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Para>\n"); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 40 ".\\analizador_lexico.l"
+#line 39 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Desde>\n"); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 41 ".\\analizador_lexico.l"
+#line 40 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Con>\n"); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 42 ".\\analizador_lexico.l"
+#line 41 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Paso>\n"); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 43 ".\\analizador_lexico.l"
+#line 42 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinPara>\n"); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 44 ".\\analizador_lexico.l"
+#line 43 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Funcion>\n"); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 45 ".\\analizador_lexico.l"
+#line 44 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinFuncion>\n"); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 46 ".\\analizador_lexico.l"
+#line 45 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, SubAlgoritmo>\n"); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 47 ".\\analizador_lexico.l"
+#line 46 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinSubAlgoritmo>\n"); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 48 ".\\analizador_lexico.l"
+#line 47 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, SubAlgoritmo>\n"); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 49 ".\\analizador_lexico.l"
+#line 48 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, FinSubAlgoritmo>\n"); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 50 ".\\analizador_lexico.l"
+#line 49 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Dimension>\n"); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 51 ".\\analizador_lexico.l"
+#line 50 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Por>\n"); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 52 ".\\analizador_lexico.l"
+#line 51 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Referencia>\n"); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 53 ".\\analizador_lexico.l"
+#line 52 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Valor>\n"); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 54 ".\\analizador_lexico.l"
+#line 53 ".\\analizador_lexico.l"
 { fprintf(token_file, "<PALABRA_RESERVADA, Fin>\n"); }
 	YY_BREAK
 /* Tipos de datos */
 case 43:
 YY_RULE_SETUP
-#line 57 ".\\analizador_lexico.l"
+#line 56 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Entero>\n"); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 58 ".\\analizador_lexico.l"
+#line 57 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Real>\n"); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 59 ".\\analizador_lexico.l"
+#line 58 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Caracter>\n"); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 60 ".\\analizador_lexico.l"
+#line 59 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Cadena>\n"); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 61 ".\\analizador_lexico.l"
+#line 60 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Texto>\n"); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 62 ".\\analizador_lexico.l"
+#line 61 ".\\analizador_lexico.l"
 { fprintf(token_file, "<TIPO_DATO, Logico>\n"); }
 	YY_BREAK
-/* Operadores de asignación */
+/* Operadores de asignacion */
 case 49:
 YY_RULE_SETUP
-#line 65 ".\\analizador_lexico.l"
+#line 64 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
 	YY_BREAK
-/* Operadores aritméticos */
+/* Operadores aritmeticos */
 case 50:
 YY_RULE_SETUP
-#line 68 ".\\analizador_lexico.l"
+#line 67 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, +>\n"); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 69 ".\\analizador_lexico.l"
+#line 68 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, ->\n"); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 70 ".\\analizador_lexico.l"
+#line 69 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, *>\n"); }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 71 ".\\analizador_lexico.l"
+#line 70 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, />\n"); }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 72 ".\\analizador_lexico.l"
+#line 71 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, %>\n"); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 73 ".\\analizador_lexico.l"
+#line 72 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_ARITMETICO, ^>\n"); }
 	YY_BREAK
 /* Operadores relacionales */
 case 56:
 YY_RULE_SETUP
-#line 76 ".\\analizador_lexico.l"
+#line 75 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, =>\n"); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 77 ".\\analizador_lexico.l"
+#line 76 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, ==>\n"); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 78 ".\\analizador_lexico.l"
+#line 77 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, <>>\n"); }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 79 ".\\analizador_lexico.l"
+#line 78 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, <=>\n"); }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 80 ".\\analizador_lexico.l"
+#line 79 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, >=>\n"); }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 81 ".\\analizador_lexico.l"
+#line 80 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, <>\n"); }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 82 ".\\analizador_lexico.l"
+#line 81 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_RELACIONAL, >>\n"); }
 	YY_BREAK
-/* Operadores lógicos */
+/* Operadores logicos */
 case 63:
 YY_RULE_SETUP
-#line 85 ".\\analizador_lexico.l"
+#line 84 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_LOGICO, Y>\n"); }
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 86 ".\\analizador_lexico.l"
+#line 85 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_LOGICO, O>\n"); }
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 87 ".\\analizador_lexico.l"
+#line 86 ".\\analizador_lexico.l"
 { fprintf(token_file, "<OPERADOR_LOGICO, NO>\n"); }
 	YY_BREAK
-/* Constantes numéricas sin signo */
+/* Constantes numericas sin signo */
 case 66:
 YY_RULE_SETUP
-#line 90 ".\\analizador_lexico.l"
+#line 89 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 91 ".\\analizador_lexico.l"
+#line 90 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 	YY_BREAK
-/* Constantes numéricas con signo */
+/* Constantes numericas con signo */
 case 68:
 YY_RULE_SETUP
-#line 94 ".\\analizador_lexico.l"
+#line 93 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 95 ".\\analizador_lexico.l"
+#line 94 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 	YY_BREAK
 /* Constantes de texto con comillas dobles */
 case 70:
 YY_RULE_SETUP
-#line 98 ".\\analizador_lexico.l"
+#line 97 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 	YY_BREAK
 /* Constantes de texto con comillas simples */
 case 71:
 YY_RULE_SETUP
-#line 101 ".\\analizador_lexico.l"
+#line 100 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 	YY_BREAK
-/* Constantes lógicas */
+/* Constantes logicas */
 case 72:
 YY_RULE_SETUP
-#line 104 ".\\analizador_lexico.l"
+#line 103 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_LOGICO, Verdadero>\n"); }
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 105 ".\\analizador_lexico.l"
+#line 104 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CONST_LOGICO, Falso>\n"); }
 	YY_BREAK
 /* Ignorar Comentarios */
 case 74:
 YY_RULE_SETUP
-#line 108 ".\\analizador_lexico.l"
+#line 107 ".\\analizador_lexico.l"
 ;
 	YY_BREAK
 /* Delimitadores */
 case 75:
 YY_RULE_SETUP
-#line 111 ".\\analizador_lexico.l"
+#line 110 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, ,>\n"); }
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 112 ".\\analizador_lexico.l"
+#line 111 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, ;>\n"); }
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 113 ".\\analizador_lexico.l"
+#line 112 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, (>\n"); }
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
-#line 114 ".\\analizador_lexico.l"
+#line 113 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, )>\n"); }
 	YY_BREAK
 case 79:
 YY_RULE_SETUP
-#line 115 ".\\analizador_lexico.l"
+#line 114 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, [>\n"); }
 	YY_BREAK
 case 80:
 YY_RULE_SETUP
-#line 116 ".\\analizador_lexico.l"
+#line 115 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, ]>\n"); }
 	YY_BREAK
 case 81:
 YY_RULE_SETUP
-#line 117 ".\\analizador_lexico.l"
+#line 116 ".\\analizador_lexico.l"
 { fprintf(token_file, "<DELIMITADOR, \">\n"); }
 	YY_BREAK
 /* Simbolos extras */
 case 82:
 YY_RULE_SETUP
-#line 120 ".\\analizador_lexico.l"
+#line 119 ".\\analizador_lexico.l"
 { fprintf(token_file, "<SIMBOLO, :>\n"); }
 	YY_BREAK
 /* Identificadores */
 case 83:
 YY_RULE_SETUP
-#line 123 ".\\analizador_lexico.l"
+#line 122 ".\\analizador_lexico.l"
 { fprintf(token_file, "<IDENTIFICADOR, %s>\n", yytext); }
 	YY_BREAK
 /* Ignora espacios en blanco y tabulaciones */
 case 84:
 YY_RULE_SETUP
-#line 126 ".\\analizador_lexico.l"
+#line 125 ".\\analizador_lexico.l"
 ;
 	YY_BREAK
-/* Reconocer saltos de línea */
+/* Reconocer saltos de linea */
 case 85:
 YY_RULE_SETUP
-#line 129 ".\\analizador_lexico.l"
+#line 128 ".\\analizador_lexico.l"
 { fprintf(token_file, "<SALTO_LINEA>\n"); }
 	YY_BREAK
 /* Caracteres no reconocidos */
 case 86:
 YY_RULE_SETUP
-#line 132 ".\\analizador_lexico.l"
+#line 131 ".\\analizador_lexico.l"
 { fprintf(token_file, "<CARACTER_NO_RECONOCIDO, %s>\n", yytext); }
 	YY_BREAK
 case 87:
 YY_RULE_SETUP
-#line 134 ".\\analizador_lexico.l"
+#line 133 ".\\analizador_lexico.l"
 ECHO;
 	YY_BREAK
-#line 1405 "lex.yy.c"
+#line 1404 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -2287,17 +2286,49 @@ int main()
 	return 0;
 	}
 #endif
-#line 134 ".\\analizador_lexico.l"
+#line 133 ".\\analizador_lexico.l"
 
 
-int main(int argc, char **argv) {
-    if (argc > 1)
-        yyin = fopen(argv[1], "r");
-    else
+int main() {
+    int opcion;
+    char archivo[100];
+
+    printf("Seleccione una opcion:\n");
+    printf("1. Leer desde un archivo txt\n");
+    printf("2. Ingreso manual\n");
+    printf("Opcion: ");
+    scanf("%d", &opcion);
+
+    if (opcion == 1) {
+        printf("Ingrese el nombre del archivo (con extension .txt): ");
+        scanf("%s", archivo);
+
+        yyin = fopen(archivo, "r");
+        if (yyin == NULL) {
+            printf("Error al abrir el archivo %s\n", archivo);
+            return 1;
+        }
+    } else if (opcion == 2) {
+        printf("Ingrese el texto manualmente (Ctrl+C para finalizar):\n");
         yyin = stdin;
+    } else {
+        printf("Opcion no valida.\n");
+        return 1;
+    }
 
     token_file = fopen("tokens.txt", "w");
+    if (token_file == NULL) {
+        printf("Error al crear el archivo de tokens.\n");
+        return 1;
+    }
+
     yylex();
+
     fclose(token_file);
+    if (opcion == 1) {
+        fclose(yyin);
+    }
+
+    printf("Analisis lexico completado. Los tokens se han guardado en 'tokens.txt'.\n");
     return 0;
 }

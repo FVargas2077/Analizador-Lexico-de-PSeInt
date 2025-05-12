@@ -1,6 +1,5 @@
 %{
-#include <stdio.h> // Para la función fprintf
-#include <stdlib.h> // Para la función exit
+#include <stdio.h> // Para la funcion fprintf
 FILE *token_file; // Archivo para guardar los tokens
 %}
 
@@ -61,10 +60,10 @@ FILE *token_file; // Archivo para guardar los tokens
 "Texto"             { fprintf(token_file, "<TIPO_DATO, Texto>\n"); }
 "Logico"            { fprintf(token_file, "<TIPO_DATO, Logico>\n"); }
 
- /* Operadores de asignación */
+ /* Operadores de asignacion */
 "<-"|":="           { fprintf(token_file, "<OPERADOR_ASIGNACION, <->\n"); }
 
- /* Operadores aritméticos */
+ /* Operadores aritmeticos */
 "+"                 { fprintf(token_file, "<OPERADOR_ARITMETICO, +>\n"); }
 "-"                 { fprintf(token_file, "<OPERADOR_ARITMETICO, ->\n"); }
 "*"                 { fprintf(token_file, "<OPERADOR_ARITMETICO, *>\n"); }
@@ -81,16 +80,16 @@ FILE *token_file; // Archivo para guardar los tokens
 "<"                 { fprintf(token_file, "<OPERADOR_RELACIONAL, <>\n"); }
 ">"                 { fprintf(token_file, "<OPERADOR_RELACIONAL, >>\n"); }
 
- /* Operadores lógicos */
+ /* Operadores logicos */
 "Y"|"&"             { fprintf(token_file, "<OPERADOR_LOGICO, Y>\n"); }
 "O"|"|"             { fprintf(token_file, "<OPERADOR_LOGICO, O>\n"); }
 "NO"|"~"            { fprintf(token_file, "<OPERADOR_LOGICO, NO>\n"); }
 
- /* Constantes numéricas sin signo */
+ /* Constantes numericas sin signo */
 [0-9]+\.[0-9]+        { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
 [0-9]+                { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 
- /* Constantes numéricas con signo */
+ /* Constantes numericas con signo */
 ([^0-9]|^)[-+][0-9]+\.[0-9]+        { fprintf(token_file, "<CONST_REAL, %s>\n", yytext); }
 ([^0-9]|^)[-+][0-9]+                { fprintf(token_file, "<CONST_ENTERO, %s>\n", yytext); }
 
@@ -100,7 +99,7 @@ FILE *token_file; // Archivo para guardar los tokens
  /* Constantes de texto con comillas simples */
 \'([^\\\'\n]|\\.)*\'  { fprintf(token_file, "<CONST_TEXTO, %s>\n", yytext); }
 
- /* Constantes lógicas */
+ /* Constantes logicas */
 "Verdadero"         { fprintf(token_file, "<CONST_LOGICO, Verdadero>\n"); }
 "Falso"             { fprintf(token_file, "<CONST_LOGICO, Falso>\n"); }
 
@@ -125,7 +124,7 @@ FILE *token_file; // Archivo para guardar los tokens
  /* Ignora espacios en blanco y tabulaciones */
 [ \t]+              ;
 
- /* Reconocer saltos de línea */
+ /* Reconocer saltos de linea */
 \n                      { fprintf(token_file, "<SALTO_LINEA>\n"); }
 
  /* Caracteres no reconocidos */
@@ -133,14 +132,46 @@ FILE *token_file; // Archivo para guardar los tokens
 
 %%
 
-int main(int argc, char **argv) {
-    if (argc > 1)
-        yyin = fopen(argv[1], "r");
-    else
+int main() {
+    int opcion;
+    char archivo[100];
+
+    printf("Seleccione una opcion:\n");
+    printf("1. Leer desde un archivo txt\n");
+    printf("2. Ingreso manual\n");
+    printf("Opcion: ");
+    scanf("%d", &opcion);
+
+    if (opcion == 1) {
+        printf("Ingrese el nombre del archivo (con extension .txt): ");
+        scanf("%s", archivo);
+
+        yyin = fopen(archivo, "r");
+        if (yyin == NULL) {
+            printf("Error al abrir el archivo %s\n", archivo);
+            return 1;
+        }
+    } else if (opcion == 2) {
+        printf("Ingrese el texto manualmente (Ctrl+C para finalizar):\n");
         yyin = stdin;
+    } else {
+        printf("Opcion no valida.\n");
+        return 1;
+    }
 
     token_file = fopen("tokens.txt", "w");
+    if (token_file == NULL) {
+        printf("Error al crear el archivo de tokens.\n");
+        return 1;
+    }
+
     yylex();
+
     fclose(token_file);
+    if (opcion == 1) {
+        fclose(yyin);
+    }
+
+    printf("Analisis lexico completado. Los tokens se han guardado en 'tokens.txt'.\n");
     return 0;
 }
