@@ -3,6 +3,7 @@
     #include <stdlib.h>
     #include <math.h>
     extern int yylex(void);
+    extern int yyparse(void);
     extern char *yytext;
     extern int linea;
     extern FILE *yyin;
@@ -15,51 +16,76 @@
     char *str;
 }
 
-/* Palabras reservadas */
+ /* Palabras reservadas */
 %token ALGORITMO FINALGORITMO DEFINIR COMO ESCRIBIR LEER
 %token SI ENTONCES SINO FINSI SEGUN CASO DE OTRO MODO FINSEGUN
 %token MIENTRAS HACER FINMIENTRAS REPETIR HASTA QUE
 %token PARA DESDE CON PASO FINPARA FUNCION FINFUNCION
-%token SUBALGORITMO FINSUBALGORITMO DIMENSION POR REFERENCIA VALOR FIN
+%token SUBALGORITMO FINSUBALGORITMO DIMENSION POR REFERENCIA VALOR
 
-/* Tipos de datos */
+ /* Tipos de datos */
 %token ENTERO REAL CADENA LOGICO
 
-/* Operadores */
+ /* Operadores */
 %token ASIGNACION MAS MENOS ASTERISCO DIVISION MODULO POTENCIA
 %token IGUAL IGUALIGUAL DIFERENTE MENOR_IGUAL MAYOR_IGUAL MENOR MAYOR
 %token Y O NO
 
-/* Constantes numericas y texto */
+ /* Constantes numericas y texto */
 %token <entero> NUMERO_ENTERO
 %token <real> NUMERO_REAL
 %token <str> TEXTO
 
-/* Constantes lógicas */
+ /* Constantes lógicas */
 %token VERDADERO FALSO
 
-/* Delimitadores */
+ /* Delimitadores */
 %token COMA PUNTO_Y_COMA PA PC CA CC DOS_PUNTOS
 
-/* Otros tokens */
+ /* Otros tokens */
 %token SALTO_LINEA ERROR
 %token <str> IDENTIFICADOR
 
-/* Seccion de la gramatica */
+ /* Precedencia y asociatividad de operadores */
+%nonassoc IGUAL IGUALIGUAL DIFERENTE MENOR MAYOR MENOR_IGUAL MAYOR_IGUAL
+%left O
+%left Y
+%left MAS MENOS
+%left ASTERISCO DIVISION MODULO
+%right POTENCIA
+%right NO
+%right UMINUS
+
+ /* Seccion de la gramatica */
 %start programa
 
 %%
 
 programa:
-    ALGORITMO IDENTIFICADOR instrucciones FINALGORITMO
+    ALGORITMO IDENTIFICADOR instrucciones FINALGORITMO subalgoritmo_funciones_definir
     {
-        printf("Programa: %s\n", $2);
+        printf("Programa: %s completado exitosamente\n", $2);
+    }
+    | SALTO_LINEA ALGORITMO IDENTIFICADOR instrucciones FINALGORITMO subalgoritmo_funciones_definir
+    {
+        printf("Programa: %s completado exitosamente\n", $3);
+    }
+    | ALGORITMO IDENTIFICADOR instrucciones FINALGORITMO SALTO_LINEA subalgoritmo_funciones_definir
+    {
+        printf("Programa: %s completado exitosamente\n", $2);
     }
 ;
+
+subalgoritmo_funciones_definir:
+    /* vacio */
+    | SALTO_LINEA subalgoritmo subalgoritmo_funciones_definir
+    | SALTO_LINEA funcion subalgoritmo_funciones_definir
 
 instrucciones:
     /* vacio */
     | instrucciones instruccion
+    | instrucciones SALTO_LINEA
+    | instrucciones PUNTO_Y_COMA
 ;
 
 instruccion:
@@ -72,10 +98,8 @@ instruccion:
     | estructura_para
     | instruccion_escribir
     | instruccion_leer
-    | funcion
-    | subalgoritmo
     | declaracion_dimension
-    | SALTO_LINEA
+    | llamada_procedimiento
     | ERROR
     {
         printf("Error sintactico recuperado\n");
@@ -83,14 +107,15 @@ instruccion:
 ;
 
 declaracion:
-    DEFINIR IDENTIFICADOR COMO tipo_dato
+    DEFINIR definir_identificadores COMO tipo_dato
     {
-        printf("Declarando variable: %s\n", $2);
+        printf("Declarando variable\n");
     }
-    | DEFINIR IDENTIFICADOR COMO tipo_dato PUNTO_Y_COMA
-    {
-        printf("Declarando variable: %s\n", $2);
-    }
+;
+
+definir_identificadores:
+      IDENTIFICADOR COMA definir_identificadores
+    | IDENTIFICADOR
 ;
 
 tipo_dato:
@@ -101,14 +126,23 @@ tipo_dato:
 ;
 
 asignacion:
-    IDENTIFICADOR ASIGNACION expresion
+    IDENTIFICADOR asignacion_variable expresion
     {
         printf("Asignacion a: %s\n", $1);
     }
-    | IDENTIFICADOR IGUAL expresion
+    | IDENTIFICADOR CA expresion CC asignacion_variable expresion
     {
-        printf("Asignacion a: %s\n", $1);
+        printf("Asignacion a arreglo: %s[]\n", $1);
     }
+    | IDENTIFICADOR CA expresion COMA expresion CC asignacion_variable expresion
+    {
+        printf("Asignacion a matriz: %s[,]\n", $1);
+    }
+;
+
+asignacion_variable:
+    ASIGNACION
+    | IGUAL
 ;
 
 estructura_si:
@@ -131,6 +165,7 @@ estructura_segun:
 
 casos_segun:
     /* vacio */
+    | SALTO_LINEA caso_segun
     | casos_segun caso_segun
 ;
 
@@ -160,11 +195,11 @@ estructura_repetir:
 ;
 
 estructura_para:
-    PARA IDENTIFICADOR ASIGNACION expresion HASTA expresion HACER instrucciones FINPARA
+    PARA IDENTIFICADOR asignacion_variable expresion HASTA expresion HACER instrucciones FINPARA
     {
         printf("Estructura Para\n");
     }
-    | PARA IDENTIFICADOR ASIGNACION expresion HASTA expresion CON PASO expresion HACER instrucciones FINPARA
+    | PARA IDENTIFICADOR asignacion_variable expresion HASTA expresion CON PASO expresion HACER instrucciones FINPARA
     {
         printf("Estructura Para con paso\n");
     }
@@ -179,10 +214,15 @@ estructura_para:
 ;
 
 instruccion_escribir:
-    ESCRIBIR expresion
+    ESCRIBIR expresion_escribir
     {
         printf("Instruccion Escribir\n");
     }
+;
+
+expresion_escribir:
+    expresion
+    | expresion_escribir COMA expresion
 ;
 
 instruccion_leer:
@@ -190,12 +230,24 @@ instruccion_leer:
     {
         printf("Leer variable: %s\n", $2);
     }
+    | LEER IDENTIFICADOR CA expresion CC
+    {
+        printf("Leer arreglo: %s[]\n", $2);
+    }
+    | LEER IDENTIFICADOR CA expresion COMA expresion CC
+    {
+        printf("Leer matriz: %s[,]\n", $2);
+    }
 ;
 
 funcion:
     FUNCION IDENTIFICADOR PA parametros_funcion PC instrucciones FINFUNCION
     {
         printf("Definicion de funcion: %s\n", $2);
+    }
+    | FUNCION IDENTIFICADOR ASIGNACION IDENTIFICADOR PA parametros_funcion PC instrucciones FINFUNCION
+    {
+        printf("Definicion de funcion con retorno: %s\n", $4);
     }
 ;
 
@@ -211,8 +263,8 @@ lista_parametros:
 
 parametro:
     IDENTIFICADOR
-    | POR REFERENCIA IDENTIFICADOR
-    | POR VALOR IDENTIFICADOR
+    | IDENTIFICADOR POR REFERENCIA
+    | IDENTIFICADOR POR VALOR
 ;
 
 subalgoritmo:
@@ -233,12 +285,47 @@ declaracion_dimension:
     }
 ;
 
+llamada_procedimiento:
+    IDENTIFICADOR PA argumentos_llamada PC
+    {
+        printf("Llamada a procedimiento: %s\n", $1);
+    }
+    | IDENTIFICADOR PA PC
+    {
+        printf("Llamada a procedimiento: %s\n", $1);
+    }
+;
+
+argumentos_llamada:
+    expresion
+    | argumentos_llamada COMA expresion
+;
+
 expresion:
+      expresion_logica
+;
+
+expresion_logica:
+      expresion_relacional
+    | expresion_logica Y expresion_relacional
+    | expresion_logica O expresion_relacional
+;
+
+expresion_relacional:
+      expresion_aritmetica
+    | expresion_aritmetica IGUAL expresion_aritmetica
+    | expresion_aritmetica IGUALIGUAL expresion_aritmetica
+    | expresion_aritmetica DIFERENTE expresion_aritmetica
+    | expresion_aritmetica MENOR expresion_aritmetica
+    | expresion_aritmetica MAYOR expresion_aritmetica
+    | expresion_aritmetica MENOR_IGUAL expresion_aritmetica
+    | expresion_aritmetica MAYOR_IGUAL expresion_aritmetica
+;
+
+expresion_aritmetica:
       termino
-    | expresion MAS termino
-    | expresion MENOS termino
-    | expresion operador_relacional termino
-    | expresion operador_logico termino
+    | expresion_aritmetica MAS termino
+    | expresion_aritmetica MENOS termino
 ;
 
 termino:
@@ -253,31 +340,16 @@ factor:
       NUMERO_ENTERO
     | NUMERO_REAL
     | IDENTIFICADOR
+    | IDENTIFICADOR CA expresion CC
+    | IDENTIFICADOR CA expresion COMA expresion CC
     | TEXTO
     | VERDADERO
     | FALSO
     | PA expresion PC
-    | MENOS factor
+    | MENOS factor %prec UMINUS
     | NO factor
-    | FIN
-    {
-        printf("Token FIN encontrado\n");
-    }
-;
-
-operador_relacional:
-      IGUAL
-    | IGUALIGUAL
-    | DIFERENTE
-    | MENOR
-    | MAYOR
-    | MENOR_IGUAL
-    | MAYOR_IGUAL
-;
-
-operador_logico:
-      Y
-    | O
+    | IDENTIFICADOR PA argumentos_llamada PC
+    | IDENTIFICADOR PA PC
 ;
 
 %%
@@ -297,7 +369,7 @@ int main(int argc, char *argv[]) {
         }
         printf("Analizando archivo: %s\n", argv[1]);
     } else {
-        printf("Leyendo desde entrada estandar (Ctrl+D para terminar):\n");
+        printf("Leyendo desde entrada estandar (Ctrl+Z para terminar):\n");
         yyin = stdin;
     }
     

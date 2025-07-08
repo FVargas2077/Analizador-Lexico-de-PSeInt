@@ -1,8 +1,9 @@
 %{
 #include <stdlib.h> // Para la funcion fopen
 #include <stdio.h> // Para la funcion fprintf
-#include "analizador_sintactico.tap.h"
-int linea = 0; // Contador de lineas
+#include "analizador_sintactico.tab.h"
+#include <string.h> // Para la funcion strdup
+int linea = 1; // Contador de lineas
 %}
 
 %option caseless
@@ -52,7 +53,6 @@ int linea = 0; // Contador de lineas
 "Por"               { return POR; }
 "Referencia"        { return REFERENCIA; }
 "Valor"             { return VALOR; }
-"Fin"               { return FIN; }
 
  /* Tipos de datos */
 "Entero"            { return ENTERO; }
@@ -122,7 +122,7 @@ int linea = 0; // Contador de lineas
 [ \t]+              ;
 
  /* Reconocer saltos de linea */
-\n                      { return SALTO_LINEA; }
+[\n]+                      { linea += yyleng; return SALTO_LINEA; }
 
  /* Caracteres no reconocidos */
 .                       { return ERROR; }
